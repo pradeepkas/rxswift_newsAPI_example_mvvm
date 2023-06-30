@@ -8,7 +8,7 @@ target 'DemoWithNewsAPI' do
   # Pods for DemoWithNewsAPI
     pod 'RxSwift'
     pod 'RxCocoa'
-
+    pod 'SDWebImage'
 
 
   target 'DemoWithNewsAPITests' do

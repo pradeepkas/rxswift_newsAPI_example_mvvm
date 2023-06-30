@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class NewsCell: UITableViewCell {
     
@@ -37,6 +38,7 @@ class NewsCell: UITableViewCell {
         heading.text = news.title ?? ""
         subHeading.text = news.content ?? ""
         time.text = news.publishedAt ?? ""
+        imageNews.sd_setImage(with: URL(string: news.urlToImage ?? ""))
     }
     
 }
