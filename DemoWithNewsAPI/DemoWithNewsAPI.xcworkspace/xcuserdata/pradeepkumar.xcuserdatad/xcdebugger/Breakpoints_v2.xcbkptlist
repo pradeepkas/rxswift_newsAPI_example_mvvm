@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "3B1AE222-478C-449B-8ACA-DE072E36040B"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9D30A005-329C-4C2A-ACE7-EEF0011C6E8D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DemoWithNewsAPI/ViewModel/NewsInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "getListOfNews()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9D30A005-329C-4C2A-ACE7-EEF0011C6E8D - f0a5318345d5723"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DemoWithNewsAPI.NewsInteractor.getListOfNews() -&gt; ()"
+                  moduleName = "DemoWithNewsAPI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pradeepkumar/Documents/RxSwift-demo/DemoWithNewsAPI/DemoWithNewsAPI/ViewModel/NewsInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  uuid = "9D30A005-329C-4C2A-ACE7-EEF0011C6E8D - 8ea1db53a0f82452"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;DemoWithNewsAPI.NewsList&gt;) -&gt; () in DemoWithNewsAPI.NewsInteractor.getListOfNews() -&gt; ()"
+                  moduleName = "DemoWithNewsAPI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pradeepkumar/Documents/RxSwift-demo/DemoWithNewsAPI/DemoWithNewsAPI/ViewModel/NewsInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "84">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

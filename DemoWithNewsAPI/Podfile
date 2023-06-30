@@ -1,0 +1,23 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'DemoWithNewsAPI' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for DemoWithNewsAPI
+    pod 'RxSwift'
+    pod 'RxCocoa'
+
+
+
+  target 'DemoWithNewsAPITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'DemoWithNewsAPIUITests' do
+    # Pods for testing
+  end
+
+end
