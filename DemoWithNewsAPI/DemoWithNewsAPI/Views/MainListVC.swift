@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class MainListVC: UIViewController {
+final class MainListVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     

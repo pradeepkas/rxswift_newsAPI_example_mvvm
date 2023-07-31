@@ -6,31 +6,72 @@
 //
 
 import XCTest
+import RxSwift
 @testable import DemoWithNewsAPI
 
 final class DemoWithNewsAPITests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    let dispose = DisposeBag()
+    
+    class MockData: RequestAPI {
+        
+        let list: [NewsList]
+        
+        init(list: [NewsList]) {
+            self.list = list
+        }
+        
+        var response = PublishSubject<[NewsList]>()
+        func getNewsAPI() {
+            response.onNext(list)
+        }
+        
+        var observable: RxSwift.Observable<[DemoWithNewsAPI.NewsList]> {
+            response.asObservable()
         }
     }
+    
+
+
+    func test_interactor_empty() {
+        // setup
+        let interactor = NewsInteractor(network: MockData(list: []) )
+        
+        // data
+        let list = interactor.list
+        
+        list.subscribe { data in
+            XCTAssertNil(data.element)
+            if let data = data.element {
+                XCTAssertTrue(data.isEmpty)
+            }
+        }.disposed(by: dispose)
+        
+        // 
+        
+    }
+    
+    func test_interactor_with_Single_Data() {
+        
+      let listElement = NewsList(author: "iOS", title: "Driver", description: nil, url: "", urlToImage: nil, publishedAt: nil, content: nil)
+
+        // setup
+        let interactor = NewsInteractor(network: MockData(list: [listElement]) )
+        
+        // data
+        let list = interactor.list
+        
+        //checking
+        list.subscribe { data in
+            if let data = data.element, let first = data.first {
+                XCTAssertEqual(first.author, "iOS")
+                XCTAssertEqual(first.title, "Driver")
+                XCTAssertNil(first.description)
+            }
+        }.disposed(by: dispose)
+                
+    }
+
+    
 
 }

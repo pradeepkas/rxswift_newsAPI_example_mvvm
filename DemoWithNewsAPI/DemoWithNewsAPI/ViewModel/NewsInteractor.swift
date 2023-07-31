@@ -9,8 +9,14 @@ import Foundation
 import RxSwift
 import RxRelay
 
-class NewsInteractor {
+
+final class NewsInteractor {
     
+    let network: RequestAPI
+    
+    init(network: RequestAPI = NetworkNews()) {
+        self.network = network
+    }
     
     private let disposeBag = DisposeBag()
     
@@ -27,8 +33,8 @@ class NewsInteractor {
     }
     
     func getListOfNews() {
-        NetworkNews.sharedIntance.getNewsAPI()
-        NetworkNews.sharedIntance
+        network.getNewsAPI()
+        network
             .observable
             .subscribe { [weak self] result  in
                 guard let strong = self else {return}

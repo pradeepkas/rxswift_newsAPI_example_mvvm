@@ -12,11 +12,30 @@ import RxCocoa
 
 let basePath = "https://newsapi.org/v2/everything?q=bitcoin&from=2023-05-30&sortBy=publishedAt&apiKey=e3d69af3aea04d0384ea776453a8c321"
 
-class NetworkNews {
+enum Request {
     
-    private init() {}
+    case list
     
-    static let sharedIntance = NetworkNews()
+    
+    
+}
+
+protocol RequestAPI  {
+    func getNewsAPI()
+    var observable: Observable<[NewsList]> {get}
+    
+}
+
+
+class NetworkNews: RequestAPI {
+    
+    //private init() {}
+    
+    //static let sharedIntance = NetworkNews()
+    
+    init() {
+        
+    }
     
     let disposeBag = DisposeBag()
     var response = PublishSubject<[NewsList]>()
